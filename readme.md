@@ -28,7 +28,7 @@ Ecco provides multiple interfaces to aid the explanation and intuition of [Trans
 Ecco runs inside Jupyter notebooks. It is built on top of [pytorch](https://pytorch.org/) and [transformers](https://github.com/huggingface/transformers).
 
 
-Ecco is not concerned with training or fine-tuning models. Only exploring and understanding existing pre-trained models. The library is currently an alpha release of a research project. You're welcome to contribute to make it better!
+Ecco is not concerned with training or fine-tuning models. Only exploring and understanding existing pre-trained models.
 
 
 Documentation: [ecco.readthedocs.io](https://ecco.readthedocs.io/)
