@@ -778,16 +778,17 @@ class NMF:
             input_sequence: Which sequence in the batch to show.
         """
         tokens = []
-
         for idx, token in enumerate(self.tokens[input_sequence]):  # self.tokens[:-1]
-            type = "input" if idx < self.n_input_tokens else 'output'
-            tokens.append({'token': token,
-                           'token_id': int(self.token_ids[input_sequence][idx]),
-                           # 'token_id': int(self.token_ids[idx]),
-                           'type': type,
-                           # 'value': str(components[0][comp_num][idx]),  # because json complains of floats
-                           'position': idx
-                           })
+            if self.config['token_prefix'] is not None and token[0] == self.config['token_prefix']: 
+                token = token[1:]
+                type = "input" if idx < self.n_input_tokens else 'output'
+                tokens.append({'token': token,
+                    'token_id': int(self.token_ids[input_sequence][idx]),
+                        # 'token_id': int(self.token_ids[idx]),
+                    'type': type,
+                    # 'value': str(components[0][comp_num][idx]),  # because json complains of floats
+                    'position': idx
+               })
 
         # If the sequence contains both input and generated tokens:
         # Duplicate the factor at index 'n_input_tokens'. THis way
